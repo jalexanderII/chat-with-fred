@@ -79,12 +79,12 @@ async def main() -> None:
 
     # Test queries
     test_queries = [
-        # "What is the current GDP of the US?",
+        "What is the current GDP of the US?",
         "What is the inflation rate in the Eurozone?",
-        # "What is the current interest rate set by the Federal Reserve?",
-        # "What is the unemployment rate in Japan?",
-        # "What was the GDP growth rate in the US over the past 10 years?",
-        # "Show me the US unemployment rate trend for the last 20 years.",
+        "What is the current interest rate set by the Federal Reserve?",
+        "What is the unemployment rate in Japan?",
+        "What was the GDP growth rate in the US over the past 10 years?",
+        "Show me the US unemployment rate trend for the last 20 years.",
     ]
 
     try:

@@ -106,11 +106,13 @@ class SeriesAnalyzer:
                     return selection
 
             # Use AI to search FRED if no mapping found
-            search_query = self._generate_search_query(user_query, concept, region)
-            results = self.fred.search(search_query, limit=500)
-
+            results = self.fred.search(f"{region}, {concept}", limit=500)
             if results is None or results.empty:
-                return self._create_no_match_selection(concept, region)
+                # try expanded search
+                search_query = self._generate_search_query(user_query, concept, region)
+                results = self.fred.search(search_query, limit=500)
+                if results is None or results.empty:
+                    return self._create_no_match_selection(concept, region)
 
             series_mappings = self._convert_fred_results_to_mappings(results)
             selection = await self._analyze_series_mapping_results(user_query, concept, region, series_mappings)
