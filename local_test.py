@@ -3,9 +3,9 @@ import logging
 from typing import List
 from urllib.parse import urljoin
 
+from backend.config.utils import initialize_chatbot
 from backend.macro_specialist import MacroSpecialist
 from backend.schemas import ChatbotResponse
-from backend.config.utils import initialize_chatbot
 
 logger = logging.getLogger(__name__)
 
@@ -79,8 +79,8 @@ async def main() -> None:
 
     # Test queries
     test_queries = [
-        "What is the current GDP of the US?",
-        # "What is the inflation rate in the Eurozone?",
+        # "What is the current GDP of the US?",
+        "What is the inflation rate in the Eurozone?",
         # "What is the current interest rate set by the Federal Reserve?",
         # "What is the unemployment rate in Japan?",
         # "What was the GDP growth rate in the US over the past 10 years?",

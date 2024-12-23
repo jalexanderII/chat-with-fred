@@ -161,6 +161,19 @@ class SeriesMapping(BaseModel):
             metadata=metadata
         )
 
+    @property
+    def simplified_dict(self) -> Dict[str, Any]:
+        return {
+            "keywords": self.keywords,
+            "region": self.region,
+            "description": self.description,
+            "frequency": self.frequency,
+            "units": self.units,
+            "common_uses": self.common_uses,
+            "related_concepts": self.related_concepts,
+            "notes": self.metadata.get("notes", ""),
+        }
+
     def to_pinecone_dict(self) -> Dict[str, Any]:
         """
         Convert to a Pinecone-compatible dictionary with flattened metadata.

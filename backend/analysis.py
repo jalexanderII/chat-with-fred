@@ -178,7 +178,7 @@ class SeriesAnalyzer:
         """Analyze vector search results using LLM"""
         prompt = (
             f"Analyze these FRED series for the concept '{concept}' in {region}:\n"
-            "\n".join(f"- {s.title} ({s.series_id}): {s.description}"
+            "\n".join(f"- {s.title} ({s.series_id}): \n {s.simplified_dict}"
                       for s in similar_series)
         )
 
