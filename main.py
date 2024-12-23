@@ -10,10 +10,10 @@ from fastapi.responses import StreamingResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from backend.config.config import PLOTS_DIR
-from backend.macro_specialist import MacroSpecialist
-from backend.schemas import ChatbotResponse, QueryRequest
 from backend.config.utils import stream_text, create_text_from_analysis, create_text_from_metadata, \
     initialize_chatbot
+from backend.macro_specialist import MacroSpecialist
+from backend.schemas import ChatbotResponse, QueryRequest
 
 chatbot: Optional[MacroSpecialist] = None
 
@@ -127,4 +127,4 @@ async def stream_response(response: ChatbotResponse) -> AsyncGenerator[str, None
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("app:app", host="localhost", reload=True)
+    uvicorn.run("main:app", host="localhost", reload=True)
